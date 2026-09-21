@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: "Predição de picos de queimada no Cerrado"
+message: "Se você usar este material, por favor cite-o conforme abaixo."
+type: software
+authors:
+  - given-names: "<Nome>"
+    family-names: "<Sobrenome>"
+    affiliation: "Universidade Federal do Paraná"
+  - given-names: "<Nome>"
+    family-names: "<Sobrenome>"
+    affiliation: "Universidade Federal do Paraná"
+repository-code: "https://github.com/<usuario>/cerrado-picos-queimada"
+abstract: >-
+  Modelos de aprendizado de máquina para previsão, com um mês de antecedência,
+  de anomalias positivas de focos de queimada no bioma Cerrado (2015-2024), a
+  partir de dados do INPE (BDQueimadas) e do INMET.
+keywords:
+  - Cerrado
+  - queimadas
+  - aprendizado de máquina
+  - INPE
+  - INMET
+license: MIT
+version: "0.1.0"
+date-released: "2026-01-01"

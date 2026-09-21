@@ -1,0 +1,66 @@
+# Parâmetros do estudo. Nenhum número mágico deve aparecer no código:
+# tudo que define o desenho experimental vive aqui (REFORMS 4c, 5c, 5e).
+
+projeto:
+  nome: cerrado-picos-queimada
+  seed: 42
+
+periodo:
+  inicio: "2015-01-01"
+  fim: "2024-12-31"
+
+espaco:
+  bioma: "Cerrado"
+  # Tamanho da célula de grade em graus decimais. 1.0 dá ~110 km no equador.
+  # Sensibilidade a esse valor deve ser reportada no artigo.
+  tamanho_celula_graus: 1.0
+  # Célula só entra no painel se tiver ao menos este total de focos na série.
+  min_focos_celula: 50
+
+clima:
+  # Estações INMET usadas. Cada célula é associada à estação mais próxima
+  # dentro do raio máximo; células sem estação próxima são excluídas (4a).
+  estacoes:
+    - "83377"  # Brasília-DF
+    - "83423"  # Goiânia-GO
+    - "83236"  # Barra do Corda-MA (exemplo — validar código)
+    - "83264"  # Palmas-TO (exemplo — validar código)
+    - "83702"  # Campo Grande-MS (exemplo — validar código)
+  raio_max_km: 300
+
+alvo:
+  # Razão entre focos observados e a climatologia da célula para o mesmo
+  # mês-calendário, estimada SOMENTE no período de treino.
+  tipo: "razao_climatologia"
+  percentil_limiar: 90
+  # Mínimo absoluto de focos para um mês contar como pico (evita classificar
+  # anomalias irrelevantes da estação úmida).
+  min_focos_absoluto: 30
+  meses_considerados: [5, 6, 7, 8, 9, 10]
+
+features:
+  horizonte_previsao_meses: 1
+  defasagens_focos: [1, 2, 3, 12]
+  janelas_chuva_acumulada: [1, 3, 6]
+  janelas_umidade_media: [1, 3]
+  incluir_mes_calendario: true
+  incluir_coordenadas_celula: true
+
+split:
+  tipo: "temporal"
+  treino: ["2015-01-01", "2021-12-31"]
+  validacao: ["2022-01-01", "2022-12-31"]
+  teste: ["2023-01-01", "2024-12-31"]
+  # Alternativa reportada como robustez: origem móvel ano a ano.
+  rolling_origin: true
+
+modelos:
+  baselines: ["classe_majoritaria", "persistencia", "climatologia"]
+  candidatos: ["regressao_logistica", "random_forest", "lightgbm"]
+  metrica_selecao: "pr_auc"
+
+avaliacao:
+  metricas: ["pr_auc", "recall", "precision", "f1", "brier"]
+  bootstrap:
+    n_reamostragens: 1000
+    bloco: "ano"

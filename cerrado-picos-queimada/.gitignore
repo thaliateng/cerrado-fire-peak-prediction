@@ -1,0 +1,35 @@
+# Dados (não versionados — ver README seção 2)
+data/raw/*
+data/interim/*
+data/processed/*
+data/external/*
+!data/**/.gitkeep
+!data/**/README.md
+
+# Modelos serializados
+results/models/*
+!results/models/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+*.nbconvert.ipynb
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Saídas temporárias
+*.log
+tmp/
