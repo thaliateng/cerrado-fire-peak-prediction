@@ -7,9 +7,6 @@ no bioma Cerrado, usando dados do INPE (BDQueimadas) e do INMET, no período
 Trabalho final da disciplina *Ferramentas e Fundamentos em Ciência de Dados* —
 Mestrado Profissional em Ciência de Dados, UFPR.
 
-**Autoras/es:** <nome 1>, <nome 2>
-**Contato:** <email>
-
 ---
 
 ## 1. Problema e pergunta de pesquisa
