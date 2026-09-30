@@ -1,5 +1,7 @@
 # Predição de picos de queimada no Cerrado
 
+# TESTE
+
 Previsão, com um mês de antecedência, de anomalias positivas de focos de queimada
 no bioma Cerrado, usando dados do INPE (BDQueimadas) e do INMET, no período
 2015–2024. A unidade de análise é **célula de grade × mês**.
